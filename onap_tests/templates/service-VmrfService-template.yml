@@ -1,0 +1,226 @@
+tosca_definitions_version: tosca_simple_yaml_1_1
+metadata:
+  invariantUUID: 35b1ee54-1ca9-410f-92d2-d8fbbf5a9bd8
+  UUID: 52d71ae9-9c61-41cd-93e0-684cd67aae46
+  name: vMRF-service
+  description: vMRF-service
+  type: Service
+  category: Network Service
+  serviceType: ''
+  serviceRole: ''
+  serviceEcompNaming: true
+  ecompGeneratedNaming: true
+  namingPolicy: ''
+imports:
+  - nodes:
+      file: nodes.yml
+  - datatypes:
+      file: data.yml
+  - capabilities:
+      file: capabilities.yml
+  - relationships:
+      file: relationships.yml
+  - groups:
+      file: groups.yml
+  - policies:
+      file: policies.yml
+  - service-vMRF-service-interface:
+      file: service-VmrfService-template-interface.yml
+  - resource-vMRF-vf:
+      file: resource-VmrfVf-template.yml
+  - resource-vMRF-vf-interface:
+      file: resource-VmrfVf-template-interface.yml
+topology_template:
+  node_templates:
+    vMRF-vf 0:
+      type: org.openecomp.resource.vf.VmrfVf
+      metadata:
+        invariantUUID: e2e6e6da-424f-4edb-b446-1ada2283175b
+        UUID: 8dbf79f2-55c0-405e-9d32-5208043c8e7c
+        customizationUUID: ac203541-78f6-4cdb-8926-866a4360b874
+        version: '1.0'
+        name: vMRF-vf
+        description: vMRF from Radisys
+        type: VF
+        category: Application L4+
+        subcategory: Media Servers
+        resourceVendor: Generic-Vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        vf_module_id: swmrf_vf_module_id
+        eventlistener_pass_2: gel2pass
+        eventlistener_pass: gelpass
+        mrf_flavor_name: m1.large
+        mrf_image_name: MRF_Radisys_12
+        nf_naming:
+          ecomp_generated_naming: true
+        netconf_password_1: ncuser1Pass
+        netconf_max_auth_retries: 4.0
+        availability_zone_max_count: 1
+        netconf_session_timeout: 5.0
+        vnf_name: vmrf
+        netconf_ssh_port: 830.0
+        eventlistener_port: 8080.0
+        eventlistener_hostname: 10.4.2.38
+        vnf_id: '1'
+        netconf_ssh_public_key_1: vmrf_key_pair
+        eventlistener_user: geluser
+        eventlistener_hostname_2: 10.4.2.38
+        netconf_user_1: netconfuser1
+        eventlistener_user_2: gel2user
+        ext_net_id: 715a1ca1-cbc6-4d00-84bb-0f8667a748ce
+        eventlistener_port_2: 8080.0
+        mrf_name_0: SWMSVM
+  groups:
+    vmrfvf0..VmrfVf..base_swms..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: VmrfVf..base_swms..module-0
+        vfModuleModelInvariantUUID: d6893ec4-7a79-4963-84af-d1e375eb8966
+        vfModuleModelUUID: c938356e-e0e5-43e2-ba37-698a5ca8f2d2
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: f240f809-30cd-46cf-bbaf-368144d786cd
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_swms
+        max_vf_module_instances: 1
+        vfc_list:
+        vf_module_type: Base
+        vf_module_description:
+        initial_count: 1
+        volume_group: false
+        availability_zone_count:
+  substitution_mappings:
+    node_type: org.openecomp.service.VmrfService
+    capabilities:
+      vmrfvf0.mrf.abstract_mrf.host_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.host_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.allocation_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.allocation_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.capacity_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.capacity_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.allocation_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.allocation_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.capacity_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.capacity_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu_util_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu_util_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.binding_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.binding_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu.delta_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu.delta_mrf
+      vmrfvf0.mrf.abstract_mrf.memory.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu_mrf
+      vmrfvf0.mrf.abstract_mrf.memory.resident_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory.resident_mrf
+      vmrfvf0.mrf.abstract_mrf.memory_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.iops_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.iops_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.instance_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.instance_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.requests.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.endpoint_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.endpoint_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.iops_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.iops_mrf
+      vmrfvf0.mrf.abstract_mrf.feature_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.feature_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.latency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.latency_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.root.size_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.root.size_mrf
+      vmrfvf0.mrf.abstract_mrf.os_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.os_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.ephemeral.size_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.ephemeral.size_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.vcpus_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.vcpus_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.requests.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.scalable_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.scalable_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.latency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.latency_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.requests.rate_mrf
+    requirements:
+      vmrfvf0.mrf.abstract_mrf.dependency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.dependency_mrf
+      vmrfvf0.mrf.abstract_mrf.local_storage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.local_storage_mrf

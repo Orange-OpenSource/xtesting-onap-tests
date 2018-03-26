@@ -1,0 +1,17 @@
+*~
+*.pyc
+.*.sw?
+.project
+.pydevproject
+/docs_build/
+_build
+/docs_output/
+.idea
+.coverage
+cover
+coverage.xml
+nosetests.xml
+*venv
+.tox
+*.out
+*.pdf

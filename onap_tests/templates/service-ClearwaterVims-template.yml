@@ -1,0 +1,1640 @@
+tosca_definitions_version: tosca_simple_yaml_1_1
+metadata:
+  invariantUUID: 873d61cd-350b-430f-9e71-3b05255797d3
+  UUID: 9418a60e-dc6f-48c9-9c96-99e24ab072b5
+  name: Clearwater-vIMS
+  description: Clearwater-vIMS
+  type: Service
+  category: VoIP Call Control
+  serviceType: ''
+  serviceRole: ''
+  serviceEcompNaming: true
+  ecompGeneratedNaming: true
+  namingPolicy: ''
+imports:
+  - nodes:
+      file: nodes.yml
+  - datatypes:
+      file: data.yml
+  - capabilities:
+      file: capabilities.yml
+  - relationships:
+      file: relationships.yml
+  - groups:
+      file: groups.yml
+  - policies:
+      file: policies.yml
+  - service-Clearwater-vIMS-interface:
+      file: service-ClearwaterVims-template-interface.yml
+  - resource-Clearwater:
+      file: resource-Clearwater-template.yml
+  - resource-Clearwater-interface:
+      file: resource-Clearwater-template-interface.yml
+topology_template:
+  node_templates:
+    Clearwater 0:
+      type: org.openecomp.resource.vf.Clearwater
+      metadata:
+        invariantUUID: ac41d74d-293a-46f0-b64c-f5a041c12f67
+        UUID: 5c977577-0710-44ec-926f-89f34d337550
+        customizationUUID: bcebfe0e-c547-485a-b732-2081bf2c3c75
+        version: '1.0'
+        name: Clearwater
+        description: Clearwater version Nazgul
+        type: VF
+        category: Application L4+
+        subcategory: Call Control
+        resourceVendor: Generic-Vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        vf_module_id: '654321'
+        homer_image_name: ubuntu-14.04-daily
+        public_net_id: 715a1ca1-cbc6-4d00-84bb-0f8667a748ce
+        sprout_image_name: ubuntu-14.04-daily
+        ellis_image_name: ubuntu-14.04-daily
+        dnssec_key: 9FPdYTWhk5+LbhrqtTPQKw==
+        dime_flavor_name: onap.medium
+        homer_flavor_name: onap.medium
+        zone: vimstest.onap.org
+        vnf_id: '123456'
+        robot_test_flavor_name: onap.medium
+        bono_image_name: ubuntu-14.04-daily
+        vellum_flavor_name: onap.medium
+        dns_image_name: ubuntu-14.04-daily
+        dns_flavor_name: onap.medium
+        repo_url: http://repo.cw-ngv.com/stable
+        ellis_flavor_name: onap.medium
+        nf_naming:
+          ecomp_generated_naming: true
+        availability_zone_max_count: 1
+        robot_test_image_name: ubuntu-14.04-daily
+        dn_range_length: '10000'
+        dn_range_start: '2425550000'
+        key_name: onap_key_LnHa
+        dime_image_name: ubuntu-14.04-daily
+        vellum_image_name: ubuntu-14.04-daily
+        bono_flavor_name: onap.medium
+        sprout_flavor_name: onap.medium
+      capabilities:
+        disk.capacity_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu.delta_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.iops_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.ephemeral.size_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu_util_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.latency_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.iops_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory.resident_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.capacity_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        endpoint_robot_test:
+          properties:
+            secure: true
+        cpu_util_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        scalable_robot_test:
+          properties:
+            min_instances: 1
+            max_instances: 1
+        disk.write.requests.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.root.size_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.allocation_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.requests_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.latency_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.requests_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.root.size_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        instance_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.iops_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.usage_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory.usage_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        scalable_server:
+          properties:
+            min_instances: 1
+            max_instances: 1
+        disk.device.allocation_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.requests.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory.usage_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.requests_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.latency_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.usage_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        endpoint_server:
+          properties:
+            secure: true
+        memory.resident_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.requests_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.requests_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.capacity_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.iops_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        vcpus_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.usage_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.usage_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.allocation_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.requests.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.allocation_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes.rate_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        instance_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.requests_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.requests.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu.delta_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        vcpus_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.ephemeral.size_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes.rate_robot_test:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.latency_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.capacity_server:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+  groups:
+    clearwater0..Clearwater..base_clearwater..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: Clearwater..base_clearwater..module-0
+        vfModuleModelInvariantUUID: 75ea3833-83b7-4726-b8b5-62984e805025
+        vfModuleModelUUID: dad5ec28-efce-4184-9d93-ed4868eaa59a
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: b95ab883-725f-40f1-9646-29dc7fc7b7d8
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_clearwater
+        max_vf_module_instances: 1
+        vfc_list:
+        vf_module_type: Base
+        vf_module_description:
+        initial_count: 1
+        volume_group: false
+        availability_zone_count:
+  substitution_mappings:
+    node_type: org.openecomp.service.ClearwaterVims
+    capabilities:
+      clearwater0.server.dns.disk.device.usage_server:
+        - clearwater0
+        - server.dns.disk.device.usage_server
+      clearwater0.server.dime.disk.device.usage_server:
+        - clearwater0
+        - server.dime.disk.device.usage_server
+      clearwater0.server.ellis.disk.device.write.bytes_server:
+        - clearwater0
+        - server.ellis.disk.device.write.bytes_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.read.requests_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.read.requests_robot_test
+      clearwater0.server.bono.disk.write.requests.rate_server:
+        - clearwater0
+        - server.bono.disk.write.requests.rate_server
+      clearwater0.server.dime.disk.device.write.bytes_server:
+        - clearwater0
+        - server.dime.disk.device.write.bytes_server
+      clearwater0.server.ellis.disk.device.allocation_server:
+        - clearwater0
+        - server.ellis.disk.device.allocation_server
+      clearwater0.server.ellis.memory.resident_server:
+        - clearwater0
+        - server.ellis.memory.resident_server
+      clearwater0.server.homer.host_server:
+        - clearwater0
+        - server.homer.host_server
+      clearwater0.server.bono.disk.device.iops_server:
+        - clearwater0
+        - server.bono.disk.device.iops_server
+      clearwater0.server.vellum.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.vellum.disk.device.read.bytes.rate_server
+      clearwater0.server.dime.host_server:
+        - clearwater0
+        - server.dime.host_server
+      clearwater0.server.dime.memory.resident_server:
+        - clearwater0
+        - server.dime.memory.resident_server
+      clearwater0.server.dns.memory_server:
+        - clearwater0
+        - server.dns.memory_server
+      clearwater0.robot_test.abstract_robot_test.disk.iops_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.iops_robot_test
+      clearwater0.server.ellis.vcpus_server:
+        - clearwater0
+        - server.ellis.vcpus_server
+      clearwater0.server.bono.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.bono.disk.device.read.bytes.rate_server
+      clearwater0.server.homer.disk.write.requests.rate_server:
+        - clearwater0
+        - server.homer.disk.write.requests.rate_server
+      clearwater0.server.dns.disk.capacity_server:
+        - clearwater0
+        - server.dns.disk.capacity_server
+      clearwater0.server.bono.disk.allocation_server:
+        - clearwater0
+        - server.bono.disk.allocation_server
+      clearwater0.server.bono.disk.capacity_server:
+        - clearwater0
+        - server.bono.disk.capacity_server
+      clearwater0.server.ellis.disk.device.iops_server:
+        - clearwater0
+        - server.ellis.disk.device.iops_server
+      clearwater0.server.bono.feature_server:
+        - clearwater0
+        - server.bono.feature_server
+      clearwater0.server.sprout.disk.device.iops_server:
+        - clearwater0
+        - server.sprout.disk.device.iops_server
+      clearwater0.robot_test.abstract_robot_test.vcpus_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.vcpus_robot_test
+      clearwater0.server.dime.disk.device.write.requests_server:
+        - clearwater0
+        - server.dime.disk.device.write.requests_server
+      clearwater0.server.vellum.disk.allocation_server:
+        - clearwater0
+        - server.vellum.disk.allocation_server
+      clearwater0.server.dime.disk.device.capacity_server:
+        - clearwater0
+        - server.dime.disk.device.capacity_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.write.requests_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.write.requests_robot_test
+      clearwater0.server.dns.disk.allocation_server:
+        - clearwater0
+        - server.dns.disk.allocation_server
+      clearwater0.server.bono.binding_server:
+        - clearwater0
+        - server.bono.binding_server
+      clearwater0.server.homer.disk.device.write.bytes_server:
+        - clearwater0
+        - server.homer.disk.device.write.bytes_server
+      clearwater0.server.vellum.cpu_server:
+        - clearwater0
+        - server.vellum.cpu_server
+      clearwater0.server.ellis.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.ellis.disk.device.write.requests.rate_server
+      clearwater0.server.sprout.disk.root.size_server:
+        - clearwater0
+        - server.sprout.disk.root.size_server
+      clearwater0.server.bono.cpu_server:
+        - clearwater0
+        - server.bono.cpu_server
+      clearwater0.server.vellum.disk.device.write.requests_server:
+        - clearwater0
+        - server.vellum.disk.device.write.requests_server
+      clearwater0.server.vellum.os_server:
+        - clearwater0
+        - server.vellum.os_server
+      clearwater0.server.vellum.disk.root.size_server:
+        - clearwater0
+        - server.vellum.disk.root.size_server
+      clearwater0.server.dns.disk.write.bytes_server:
+        - clearwater0
+        - server.dns.disk.write.bytes_server
+      clearwater0.server.dns.disk.write.requests.rate_server:
+        - clearwater0
+        - server.dns.disk.write.requests.rate_server
+      clearwater0.server.ellis.disk.device.read.requests_server:
+        - clearwater0
+        - server.ellis.disk.device.read.requests_server
+      clearwater0.server.sprout.disk.device.read.bytes_server:
+        - clearwater0
+        - server.sprout.disk.device.read.bytes_server
+      clearwater0.server.sprout.disk.device.latency_server:
+        - clearwater0
+        - server.sprout.disk.device.latency_server
+      clearwater0.server.ellis.cpu_server:
+        - clearwater0
+        - server.ellis.cpu_server
+      clearwater0.server.ellis.disk.device.latency_server:
+        - clearwater0
+        - server.ellis.disk.device.latency_server
+      clearwater0.server.vellum.disk.device.capacity_server:
+        - clearwater0
+        - server.vellum.disk.device.capacity_server
+      clearwater0.robot_test.abstract_robot_test.disk.allocation_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.allocation_robot_test
+      clearwater0.server.bono.os_server:
+        - clearwater0
+        - server.bono.os_server
+      clearwater0.server.dns.vcpus_server:
+        - clearwater0
+        - server.dns.vcpus_server
+      clearwater0.robot_test.abstract_robot_test.disk.write.bytes_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.write.bytes_robot_test
+      clearwater0.server.vellum.disk.read.requests_server:
+        - clearwater0
+        - server.vellum.disk.read.requests_server
+      clearwater0.server.dime.vcpus_server:
+        - clearwater0
+        - server.dime.vcpus_server
+      clearwater0.server.homer.disk.capacity_server:
+        - clearwater0
+        - server.homer.disk.capacity_server
+      clearwater0.server.sprout.disk.read.bytes_server:
+        - clearwater0
+        - server.sprout.disk.read.bytes_server
+      clearwater0.server.dime.disk.write.requests.rate_server:
+        - clearwater0
+        - server.dime.disk.write.requests.rate_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.write.bytes_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.write.bytes_robot_test
+      clearwater0.server.homer.disk.device.allocation_server:
+        - clearwater0
+        - server.homer.disk.device.allocation_server
+      clearwater0.server.homer.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.homer.disk.device.read.requests.rate_server
+      clearwater0.server.homer.disk.read.bytes_server:
+        - clearwater0
+        - server.homer.disk.read.bytes_server
+      clearwater0.server.dns.disk.read.requests_server:
+        - clearwater0
+        - server.dns.disk.read.requests_server
+      clearwater0.server.bono.disk.write.bytes_server:
+        - clearwater0
+        - server.bono.disk.write.bytes_server
+      clearwater0.server.sprout.disk.write.requests_server:
+        - clearwater0
+        - server.sprout.disk.write.requests_server
+      clearwater0.robot_test.abstract_robot_test.disk.read.requests_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.read.requests_robot_test
+      clearwater0.server.dime.scalable_server:
+        - clearwater0
+        - server.dime.scalable_server
+      clearwater0.server.ellis.disk.write.bytes_server:
+        - clearwater0
+        - server.ellis.disk.write.bytes_server
+      clearwater0.server.sprout.cpu_util_server:
+        - clearwater0
+        - server.sprout.cpu_util_server
+      clearwater0.server.bono.scalable_server:
+        - clearwater0
+        - server.bono.scalable_server
+      clearwater0.server.ellis.endpoint_server:
+        - clearwater0
+        - server.ellis.endpoint_server
+      clearwater0.robot_test.abstract_robot_test.disk.capacity_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.capacity_robot_test
+      clearwater0.server.dns.disk.latency_server:
+        - clearwater0
+        - server.dns.disk.latency_server
+      clearwater0.server.bono.disk.device.write.requests_server:
+        - clearwater0
+        - server.bono.disk.device.write.requests_server
+      clearwater0.server.homer.cpu_server:
+        - clearwater0
+        - server.homer.cpu_server
+      clearwater0.server.homer.disk.usage_server:
+        - clearwater0
+        - server.homer.disk.usage_server
+      clearwater0.server.dime.disk.device.read.bytes_server:
+        - clearwater0
+        - server.dime.disk.device.read.bytes_server
+      clearwater0.server.sprout.scalable_server:
+        - clearwater0
+        - server.sprout.scalable_server
+      clearwater0.server.homer.disk.root.size_server:
+        - clearwater0
+        - server.homer.disk.root.size_server
+      clearwater0.server.homer.cpu.delta_server:
+        - clearwater0
+        - server.homer.cpu.delta_server
+      clearwater0.server.homer.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.homer.disk.device.read.bytes.rate_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.iops_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.iops_robot_test
+      clearwater0.server.dns.disk.device.read.bytes_server:
+        - clearwater0
+        - server.dns.disk.device.read.bytes_server
+      clearwater0.server.ellis.disk.capacity_server:
+        - clearwater0
+        - server.ellis.disk.capacity_server
+      clearwater0.server.ellis.disk.ephemeral.size_server:
+        - clearwater0
+        - server.ellis.disk.ephemeral.size_server
+      clearwater0.server.ellis.binding_server:
+        - clearwater0
+        - server.ellis.binding_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.allocation_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.allocation_robot_test
+      clearwater0.server.sprout.memory.resident_server:
+        - clearwater0
+        - server.sprout.memory.resident_server
+      clearwater0.server.bono.disk.latency_server:
+        - clearwater0
+        - server.bono.disk.latency_server
+      clearwater0.server.dime.disk.device.read.requests_server:
+        - clearwater0
+        - server.dime.disk.device.read.requests_server
+      clearwater0.server.dime.cpu_server:
+        - clearwater0
+        - server.dime.cpu_server
+      clearwater0.server.sprout.disk.device.write.bytes_server:
+        - clearwater0
+        - server.sprout.disk.device.write.bytes_server
+      clearwater0.robot_test.abstract_robot_test.disk.root.size_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.root.size_robot_test
+      clearwater0.server.ellis.disk.allocation_server:
+        - clearwater0
+        - server.ellis.disk.allocation_server
+      clearwater0.server.homer.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.homer.disk.device.write.requests.rate_server
+      clearwater0.server.dime.binding_server:
+        - clearwater0
+        - server.dime.binding_server
+      clearwater0.robot_test.abstract_robot_test.memory_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.memory_robot_test
+      clearwater0.server.dime.disk.root.size_server:
+        - clearwater0
+        - server.dime.disk.root.size_server
+      clearwater0.server.bono.disk.device.capacity_server:
+        - clearwater0
+        - server.bono.disk.device.capacity_server
+      clearwater0.server.vellum.memory.resident_server:
+        - clearwater0
+        - server.vellum.memory.resident_server
+      clearwater0.server.dime.disk.iops_server:
+        - clearwater0
+        - server.dime.disk.iops_server
+      clearwater0.robot_test.abstract_robot_test.cpu_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.cpu_robot_test
+      clearwater0.server.ellis.disk.iops_server:
+        - clearwater0
+        - server.ellis.disk.iops_server
+      clearwater0.server.vellum.disk.device.iops_server:
+        - clearwater0
+        - server.vellum.disk.device.iops_server
+      clearwater0.server.dns.disk.device.latency_server:
+        - clearwater0
+        - server.dns.disk.device.latency_server
+      clearwater0.server.ellis.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.ellis.disk.device.read.requests.rate_server
+      clearwater0.server.sprout.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.sprout.disk.read.bytes.rate_server
+      clearwater0.homer_security_group.homer.feature_homer_security_group:
+        - clearwater0
+        - homer_security_group.homer.feature_homer_security_group
+      clearwater0.server.dns.scalable_server:
+        - clearwater0
+        - server.dns.scalable_server
+      clearwater0.server.bono.cpu_util_server:
+        - clearwater0
+        - server.bono.cpu_util_server
+      clearwater0.robot_test.abstract_robot_test.disk.write.requests_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.write.requests_robot_test
+      clearwater0.server.dns.disk.write.requests_server:
+        - clearwater0
+        - server.dns.disk.write.requests_server
+      clearwater0.server.dns.instance_server:
+        - clearwater0
+        - server.dns.instance_server
+      clearwater0.server.dime.cpu_util_server:
+        - clearwater0
+        - server.dime.cpu_util_server
+      clearwater0.server.dime.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.dime.disk.write.bytes.rate_server
+      clearwater0.server.ellis.scalable_server:
+        - clearwater0
+        - server.ellis.scalable_server
+      clearwater0.server.homer.disk.allocation_server:
+        - clearwater0
+        - server.homer.disk.allocation_server
+      clearwater0.server.dns.memory.resident_server:
+        - clearwater0
+        - server.dns.memory.resident_server
+      clearwater0.server.homer.disk.iops_server:
+        - clearwater0
+        - server.homer.disk.iops_server
+      clearwater0.server.vellum.cpu.delta_server:
+        - clearwater0
+        - server.vellum.cpu.delta_server
+      clearwater0.server.ellis.disk.latency_server:
+        - clearwater0
+        - server.ellis.disk.latency_server
+      clearwater0.server.bono.disk.device.read.bytes_server:
+        - clearwater0
+        - server.bono.disk.device.read.bytes_server
+      clearwater0.server.vellum.disk.usage_server:
+        - clearwater0
+        - server.vellum.disk.usage_server
+      clearwater0.server.homer.cpu_util_server:
+        - clearwater0
+        - server.homer.cpu_util_server
+      clearwater0.server.bono.memory.resident_server:
+        - clearwater0
+        - server.bono.memory.resident_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.latency_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.latency_robot_test
+      clearwater0.server.vellum.disk.device.read.bytes_server:
+        - clearwater0
+        - server.vellum.disk.device.read.bytes_server
+      clearwater0.server.ellis.os_server:
+        - clearwater0
+        - server.ellis.os_server
+      clearwater0.server.sprout.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.sprout.disk.device.write.requests.rate_server
+      clearwater0.server.bono.disk.iops_server:
+        - clearwater0
+        - server.bono.disk.iops_server
+      clearwater0.robot_test.abstract_robot_test.disk.read.bytes.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.read.bytes.rate_robot_test
+      clearwater0.server.ellis.host_server:
+        - clearwater0
+        - server.ellis.host_server
+      clearwater0.server.vellum.host_server:
+        - clearwater0
+        - server.vellum.host_server
+      clearwater0.server.dns.disk.ephemeral.size_server:
+        - clearwater0
+        - server.dns.disk.ephemeral.size_server
+      clearwater0.server.dime.memory.usage_server:
+        - clearwater0
+        - server.dime.memory.usage_server
+      clearwater0.vellum_security_group.vellum.feature_vellum_security_group:
+        - clearwater0
+        - vellum_security_group.vellum.feature_vellum_security_group
+      clearwater0.server.bono.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.bono.disk.device.read.requests.rate_server
+      clearwater0.server.bono.disk.device.write.bytes_server:
+        - clearwater0
+        - server.bono.disk.device.write.bytes_server
+      clearwater0.server.dns.disk.device.allocation_server:
+        - clearwater0
+        - server.dns.disk.device.allocation_server
+      clearwater0.server.dime.disk.write.requests_server:
+        - clearwater0
+        - server.dime.disk.write.requests_server
+      clearwater0.server.bono.memory_server:
+        - clearwater0
+        - server.bono.memory_server
+      clearwater0.server.homer.os_server:
+        - clearwater0
+        - server.homer.os_server
+      clearwater0.server.vellum.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.vellum.disk.device.write.bytes.rate_server
+      clearwater0.server.bono.disk.device.allocation_server:
+        - clearwater0
+        - server.bono.disk.device.allocation_server
+      clearwater0.server.homer.disk.device.usage_server:
+        - clearwater0
+        - server.homer.disk.device.usage_server
+      clearwater0.ellis_security_group.ellis.feature_ellis_security_group:
+        - clearwater0
+        - ellis_security_group.ellis.feature_ellis_security_group
+      clearwater0.server.dime.instance_server:
+        - clearwater0
+        - server.dime.instance_server
+      clearwater0.server.homer.feature_server:
+        - clearwater0
+        - server.homer.feature_server
+      clearwater0.server.vellum.endpoint_server:
+        - clearwater0
+        - server.vellum.endpoint_server
+      clearwater0.server.dns.cpu_util_server:
+        - clearwater0
+        - server.dns.cpu_util_server
+      clearwater0.server.dns.disk.device.write.requests_server:
+        - clearwater0
+        - server.dns.disk.device.write.requests_server
+      clearwater0.server.vellum.disk.device.allocation_server:
+        - clearwater0
+        - server.vellum.disk.device.allocation_server
+      clearwater0.server.sprout.binding_server:
+        - clearwater0
+        - server.sprout.binding_server
+      clearwater0.server.homer.disk.device.write.requests_server:
+        - clearwater0
+        - server.homer.disk.device.write.requests_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.read.bytes.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.read.bytes.rate_robot_test
+      clearwater0.server.dns.cpu_server:
+        - clearwater0
+        - server.dns.cpu_server
+      clearwater0.server.sprout.disk.read.requests_server:
+        - clearwater0
+        - server.sprout.disk.read.requests_server
+      clearwater0.server.homer.disk.ephemeral.size_server:
+        - clearwater0
+        - server.homer.disk.ephemeral.size_server
+      clearwater0.server.dns.os_server:
+        - clearwater0
+        - server.dns.os_server
+      clearwater0.robot_test.abstract_robot_test.cpu_util_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.cpu_util_robot_test
+      clearwater0.server.sprout.disk.device.usage_server:
+        - clearwater0
+        - server.sprout.disk.device.usage_server
+      clearwater0.server.sprout.disk.device.allocation_server:
+        - clearwater0
+        - server.sprout.disk.device.allocation_server
+      clearwater0.server.bono.instance_server:
+        - clearwater0
+        - server.bono.instance_server
+      clearwater0.server.vellum.disk.device.usage_server:
+        - clearwater0
+        - server.vellum.disk.device.usage_server
+      clearwater0.server.dns.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.dns.disk.write.bytes.rate_server
+      clearwater0.server.homer.scalable_server:
+        - clearwater0
+        - server.homer.scalable_server
+      clearwater0.server.dns.cpu.delta_server:
+        - clearwater0
+        - server.dns.cpu.delta_server
+      clearwater0.server.sprout.vcpus_server:
+        - clearwater0
+        - server.sprout.vcpus_server
+      clearwater0.server.bono.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.bono.disk.write.bytes.rate_server
+      clearwater0.server.homer.disk.device.latency_server:
+        - clearwater0
+        - server.homer.disk.device.latency_server
+      clearwater0.server.vellum.binding_server:
+        - clearwater0
+        - server.vellum.binding_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.usage_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.usage_robot_test
+      clearwater0.server.dime.disk.device.allocation_server:
+        - clearwater0
+        - server.dime.disk.device.allocation_server
+      clearwater0.server.sprout.disk.device.capacity_server:
+        - clearwater0
+        - server.sprout.disk.device.capacity_server
+      clearwater0.server.vellum.feature_server:
+        - clearwater0
+        - server.vellum.feature_server
+      clearwater0.server.dns.binding_server:
+        - clearwater0
+        - server.dns.binding_server
+      clearwater0.server.dns.feature_server:
+        - clearwater0
+        - server.dns.feature_server
+      clearwater0.server.dime.os_server:
+        - clearwater0
+        - server.dime.os_server
+      clearwater0.server.homer.disk.device.read.bytes_server:
+        - clearwater0
+        - server.homer.disk.device.read.bytes_server
+      clearwater0.robot_test.abstract_robot_test.disk.read.bytes_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.read.bytes_robot_test
+      clearwater0.server.bono.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.bono.disk.device.write.bytes.rate_server
+      clearwater0.server.vellum.vcpus_server:
+        - clearwater0
+        - server.vellum.vcpus_server
+      clearwater0.server.bono.disk.read.requests_server:
+        - clearwater0
+        - server.bono.disk.read.requests_server
+      clearwater0.server.vellum.disk.device.latency_server:
+        - clearwater0
+        - server.vellum.disk.device.latency_server
+      clearwater0.robot_test.abstract_robot_test.endpoint_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.endpoint_robot_test
+      clearwater0.server.dns.host_server:
+        - clearwater0
+        - server.dns.host_server
+      clearwater0.server.bono.cpu.delta_server:
+        - clearwater0
+        - server.bono.cpu.delta_server
+      clearwater0.server.bono.disk.read.bytes_server:
+        - clearwater0
+        - server.bono.disk.read.bytes_server
+      clearwater0.robot_test.abstract_robot_test.disk.write.requests.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.write.requests.rate_robot_test
+      clearwater0.sprout_security_group.sprout.feature_sprout_security_group:
+        - clearwater0
+        - sprout_security_group.sprout.feature_sprout_security_group
+      clearwater0.server.dns.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.dns.disk.read.bytes.rate_server
+      clearwater0.bono_security_group.bono.feature_bono_security_group:
+        - clearwater0
+        - bono_security_group.bono.feature_bono_security_group
+      clearwater0.server.dime.disk.read.requests_server:
+        - clearwater0
+        - server.dime.disk.read.requests_server
+      clearwater0.server.vellum.disk.ephemeral.size_server:
+        - clearwater0
+        - server.vellum.disk.ephemeral.size_server
+      clearwater0.server.sprout.disk.device.read.requests_server:
+        - clearwater0
+        - server.sprout.disk.device.read.requests_server
+      clearwater0.server.sprout.memory_server:
+        - clearwater0
+        - server.sprout.memory_server
+      clearwater0.server.sprout.cpu_server:
+        - clearwater0
+        - server.sprout.cpu_server
+      clearwater0.server.homer.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.homer.disk.write.bytes.rate_server
+      clearwater0.server.sprout.disk.iops_server:
+        - clearwater0
+        - server.sprout.disk.iops_server
+      clearwater0.robot_test.abstract_robot_test.scalable_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.scalable_robot_test
+      clearwater0.server.sprout.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.sprout.disk.device.read.requests.rate_server
+      clearwater0.server.dime.disk.device.latency_server:
+        - clearwater0
+        - server.dime.disk.device.latency_server
+      clearwater0.server.ellis.disk.read.requests_server:
+        - clearwater0
+        - server.ellis.disk.read.requests_server
+      clearwater0.server.homer.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.homer.disk.device.write.bytes.rate_server
+      clearwater0.server.vellum.disk.write.requests_server:
+        - clearwater0
+        - server.vellum.disk.write.requests_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.write.bytes.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.write.bytes.rate_robot_test
+      clearwater0.server.homer.memory.resident_server:
+        - clearwater0
+        - server.homer.memory.resident_server
+      clearwater0.server.vellum.disk.device.read.requests_server:
+        - clearwater0
+        - server.vellum.disk.device.read.requests_server
+      clearwater0.server.dime.disk.read.bytes_server:
+        - clearwater0
+        - server.dime.disk.read.bytes_server
+      clearwater0.server.bono.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.bono.disk.device.write.requests.rate_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.read.requests.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.read.requests.rate_robot_test
+      clearwater0.robot_test.abstract_robot_test.instance_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.instance_robot_test
+      clearwater0.server.dime.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.dime.disk.read.bytes.rate_server
+      clearwater0.server.dns.disk.usage_server:
+        - clearwater0
+        - server.dns.disk.usage_server
+      clearwater0.server.vellum.instance_server:
+        - clearwater0
+        - server.vellum.instance_server
+      clearwater0.server.ellis.disk.read.bytes_server:
+        - clearwater0
+        - server.ellis.disk.read.bytes_server
+      clearwater0.server.homer.memory_server:
+        - clearwater0
+        - server.homer.memory_server
+      clearwater0.server.dns.disk.device.write.bytes_server:
+        - clearwater0
+        - server.dns.disk.device.write.bytes_server
+      clearwater0.server.sprout.disk.device.write.requests_server:
+        - clearwater0
+        - server.sprout.disk.device.write.requests_server
+      clearwater0.server.homer.disk.read.requests_server:
+        - clearwater0
+        - server.homer.disk.read.requests_server
+      clearwater0.server.dime.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.dime.disk.device.write.bytes.rate_server
+      clearwater0.server.bono.disk.ephemeral.size_server:
+        - clearwater0
+        - server.bono.disk.ephemeral.size_server
+      clearwater0.server.vellum.disk.write.requests.rate_server:
+        - clearwater0
+        - server.vellum.disk.write.requests.rate_server
+      clearwater0.server.vellum.disk.write.bytes_server:
+        - clearwater0
+        - server.vellum.disk.write.bytes_server
+      clearwater0.server.vellum.disk.latency_server:
+        - clearwater0
+        - server.vellum.disk.latency_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.read.bytes_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.read.bytes_robot_test
+      clearwater0.server.sprout.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.sprout.disk.write.bytes.rate_server
+      clearwater0.robot_security_group.feature:
+        - clearwater0
+        - robot_security_group.feature
+      clearwater0.server.homer.disk.write.requests_server:
+        - clearwater0
+        - server.homer.disk.write.requests_server
+      clearwater0.robot_test.abstract_robot_test.memory.resident_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.memory.resident_robot_test
+      clearwater0.server.sprout.memory.usage_server:
+        - clearwater0
+        - server.sprout.memory.usage_server
+      clearwater0.server.bono.disk.device.latency_server:
+        - clearwater0
+        - server.bono.disk.device.latency_server
+      clearwater0.server.sprout.host_server:
+        - clearwater0
+        - server.sprout.host_server
+      clearwater0.server.ellis.memory.usage_server:
+        - clearwater0
+        - server.ellis.memory.usage_server
+      clearwater0.robot_test.abstract_robot_test.disk.write.bytes.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.write.bytes.rate_robot_test
+      clearwater0.server.bono.disk.root.size_server:
+        - clearwater0
+        - server.bono.disk.root.size_server
+      clearwater0.server.dime.disk.device.iops_server:
+        - clearwater0
+        - server.dime.disk.device.iops_server
+      clearwater0.server.ellis.cpu_util_server:
+        - clearwater0
+        - server.ellis.cpu_util_server
+      clearwater0.server.dns.disk.device.iops_server:
+        - clearwater0
+        - server.dns.disk.device.iops_server
+      clearwater0.server.sprout.endpoint_server:
+        - clearwater0
+        - server.sprout.endpoint_server
+      clearwater0.server.sprout.cpu.delta_server:
+        - clearwater0
+        - server.sprout.cpu.delta_server
+      clearwater0.robot_test.abstract_robot_test.binding_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.binding_robot_test
+      clearwater0.server.bono.host_server:
+        - clearwater0
+        - server.bono.host_server
+      clearwater0.server.dns.disk.read.bytes_server:
+        - clearwater0
+        - server.dns.disk.read.bytes_server
+      clearwater0.server.dime.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.dime.disk.device.read.requests.rate_server
+      clearwater0.server.homer.disk.device.capacity_server:
+        - clearwater0
+        - server.homer.disk.device.capacity_server
+      clearwater0.server.ellis.disk.device.capacity_server:
+        - clearwater0
+        - server.ellis.disk.device.capacity_server
+      clearwater0.server.dime.disk.ephemeral.size_server:
+        - clearwater0
+        - server.dime.disk.ephemeral.size_server
+      clearwater0.server.dns.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.dns.disk.device.read.bytes.rate_server
+      clearwater0.server.homer.memory.usage_server:
+        - clearwater0
+        - server.homer.memory.usage_server
+      clearwater0.server.dime.cpu.delta_server:
+        - clearwater0
+        - server.dime.cpu.delta_server
+      clearwater0.server.dime.disk.capacity_server:
+        - clearwater0
+        - server.dime.disk.capacity_server
+      clearwater0.server.homer.disk.write.bytes_server:
+        - clearwater0
+        - server.homer.disk.write.bytes_server
+      clearwater0.server.dime.disk.usage_server:
+        - clearwater0
+        - server.dime.disk.usage_server
+      clearwater0.server.homer.instance_server:
+        - clearwater0
+        - server.homer.instance_server
+      clearwater0.server.vellum.disk.read.bytes_server:
+        - clearwater0
+        - server.vellum.disk.read.bytes_server
+      clearwater0.server.vellum.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.vellum.disk.device.write.requests.rate_server
+      clearwater0.dime_security_group.dime.feature_dime_security_group:
+        - clearwater0
+        - dime_security_group.dime.feature_dime_security_group
+      clearwater0.server.vellum.disk.iops_server:
+        - clearwater0
+        - server.vellum.disk.iops_server
+      clearwater0.server.sprout.instance_server:
+        - clearwater0
+        - server.sprout.instance_server
+      clearwater0.robot_test.abstract_robot_test.disk.ephemeral.size_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.ephemeral.size_robot_test
+      clearwater0.server.bono.disk.device.read.requests_server:
+        - clearwater0
+        - server.bono.disk.device.read.requests_server
+      clearwater0.server.homer.vcpus_server:
+        - clearwater0
+        - server.homer.vcpus_server
+      clearwater0.server.homer.endpoint_server:
+        - clearwater0
+        - server.homer.endpoint_server
+      clearwater0.server.ellis.feature_server:
+        - clearwater0
+        - server.ellis.feature_server
+      clearwater0.server.sprout.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.sprout.disk.device.read.bytes.rate_server
+      clearwater0.server.homer.disk.latency_server:
+        - clearwater0
+        - server.homer.disk.latency_server
+      clearwater0.server.dime.memory_server:
+        - clearwater0
+        - server.dime.memory_server
+      clearwater0.server.bono.memory.usage_server:
+        - clearwater0
+        - server.bono.memory.usage_server
+      clearwater0.server.sprout.disk.write.bytes_server:
+        - clearwater0
+        - server.sprout.disk.write.bytes_server
+      clearwater0.server.dime.endpoint_server:
+        - clearwater0
+        - server.dime.endpoint_server
+      clearwater0.server.dime.disk.write.bytes_server:
+        - clearwater0
+        - server.dime.disk.write.bytes_server
+      clearwater0.server.sprout.disk.capacity_server:
+        - clearwater0
+        - server.sprout.disk.capacity_server
+      clearwater0.server.vellum.disk.capacity_server:
+        - clearwater0
+        - server.vellum.disk.capacity_server
+      clearwater0.server.ellis.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.ellis.disk.read.bytes.rate_server
+      clearwater0.server.vellum.disk.device.write.bytes_server:
+        - clearwater0
+        - server.vellum.disk.device.write.bytes_server
+      clearwater0.robot_test.abstract_robot_test.host_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.host_robot_test
+      clearwater0.server.ellis.disk.device.usage_server:
+        - clearwater0
+        - server.ellis.disk.device.usage_server
+      clearwater0.server.ellis.memory_server:
+        - clearwater0
+        - server.ellis.memory_server
+      clearwater0.server.vellum.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.vellum.disk.write.bytes.rate_server
+      clearwater0.robot_test.abstract_robot_test.memory.usage_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.memory.usage_robot_test
+      clearwater0.robot_test.abstract_robot_test.feature_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.feature_robot_test
+      clearwater0.server.dime.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.dime.disk.device.read.bytes.rate_server
+      clearwater0.robot_test.abstract_robot_test.disk.latency_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.latency_robot_test
+      clearwater0.robot_test.abstract_robot_test.disk.device.write.requests.rate_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.write.requests.rate_robot_test
+      clearwater0.robot_test.abstract_robot_test.disk.usage_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.usage_robot_test
+      clearwater0.server.dns.disk.device.capacity_server:
+        - clearwater0
+        - server.dns.disk.device.capacity_server
+      clearwater0.server.ellis.instance_server:
+        - clearwater0
+        - server.ellis.instance_server
+      clearwater0.server.homer.disk.device.iops_server:
+        - clearwater0
+        - server.homer.disk.device.iops_server
+      clearwater0.server.sprout.disk.usage_server:
+        - clearwater0
+        - server.sprout.disk.usage_server
+      clearwater0.server.bono.endpoint_server:
+        - clearwater0
+        - server.bono.endpoint_server
+      clearwater0.server.sprout.feature_server:
+        - clearwater0
+        - server.sprout.feature_server
+      clearwater0.server.ellis.disk.write.requests.rate_server:
+        - clearwater0
+        - server.ellis.disk.write.requests.rate_server
+      clearwater0.server.dime.feature_server:
+        - clearwater0
+        - server.dime.feature_server
+      clearwater0.server.dns.disk.device.read.requests_server:
+        - clearwater0
+        - server.dns.disk.device.read.requests_server
+      clearwater0.server.homer.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.homer.disk.read.bytes.rate_server
+      clearwater0.server.ellis.disk.device.write.requests_server:
+        - clearwater0
+        - server.ellis.disk.device.write.requests_server
+      clearwater0.server.dns.memory.usage_server:
+        - clearwater0
+        - server.dns.memory.usage_server
+      clearwater0.server.bono.disk.write.requests_server:
+        - clearwater0
+        - server.bono.disk.write.requests_server
+      clearwater0.server.dns.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.dns.disk.device.write.requests.rate_server
+      clearwater0.server.sprout.disk.write.requests.rate_server:
+        - clearwater0
+        - server.sprout.disk.write.requests.rate_server
+      clearwater0.server.vellum.scalable_server:
+        - clearwater0
+        - server.vellum.scalable_server
+      clearwater0.server.bono.vcpus_server:
+        - clearwater0
+        - server.bono.vcpus_server
+      clearwater0.server.vellum.memory_server:
+        - clearwater0
+        - server.vellum.memory_server
+      clearwater0.server.ellis.disk.device.read.bytes.rate_server:
+        - clearwater0
+        - server.ellis.disk.device.read.bytes.rate_server
+      clearwater0.robot_test.abstract_robot_test.os_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.os_robot_test
+      clearwater0.server.dime.disk.device.write.requests.rate_server:
+        - clearwater0
+        - server.dime.disk.device.write.requests.rate_server
+      clearwater0.server.vellum.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.vellum.disk.device.read.requests.rate_server
+      clearwater0.server.vellum.memory.usage_server:
+        - clearwater0
+        - server.vellum.memory.usage_server
+      clearwater0.server.ellis.disk.device.read.bytes_server:
+        - clearwater0
+        - server.ellis.disk.device.read.bytes_server
+      clearwater0.server.dns.disk.iops_server:
+        - clearwater0
+        - server.dns.disk.iops_server
+      clearwater0.server.ellis.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.ellis.disk.device.write.bytes.rate_server
+      clearwater0.server.sprout.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.sprout.disk.device.write.bytes.rate_server
+      clearwater0.server.vellum.cpu_util_server:
+        - clearwater0
+        - server.vellum.cpu_util_server
+      clearwater0.server.sprout.os_server:
+        - clearwater0
+        - server.sprout.os_server
+      clearwater0.server.bono.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.bono.disk.read.bytes.rate_server
+      clearwater0.dns_security_group.dns.feature_dns_security_group:
+        - clearwater0
+        - dns_security_group.dns.feature_dns_security_group
+      clearwater0.server.sprout.disk.latency_server:
+        - clearwater0
+        - server.sprout.disk.latency_server
+      clearwater0.server.dime.disk.latency_server:
+        - clearwater0
+        - server.dime.disk.latency_server
+      clearwater0.server.homer.disk.device.read.requests_server:
+        - clearwater0
+        - server.homer.disk.device.read.requests_server
+      clearwater0.server.ellis.disk.write.requests_server:
+        - clearwater0
+        - server.ellis.disk.write.requests_server
+      clearwater0.server.dns.disk.device.read.requests.rate_server:
+        - clearwater0
+        - server.dns.disk.device.read.requests.rate_server
+      clearwater0.server.dime.disk.allocation_server:
+        - clearwater0
+        - server.dime.disk.allocation_server
+      clearwater0.server.homer.binding_server:
+        - clearwater0
+        - server.homer.binding_server
+      clearwater0.server.sprout.disk.allocation_server:
+        - clearwater0
+        - server.sprout.disk.allocation_server
+      clearwater0.robot_test.abstract_robot_test.disk.device.capacity_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.disk.device.capacity_robot_test
+      clearwater0.server.ellis.disk.usage_server:
+        - clearwater0
+        - server.ellis.disk.usage_server
+      clearwater0.server.bono.disk.device.usage_server:
+        - clearwater0
+        - server.bono.disk.device.usage_server
+      clearwater0.server.sprout.disk.ephemeral.size_server:
+        - clearwater0
+        - server.sprout.disk.ephemeral.size_server
+      clearwater0.server.dns.disk.device.write.bytes.rate_server:
+        - clearwater0
+        - server.dns.disk.device.write.bytes.rate_server
+      clearwater0.server.ellis.disk.write.bytes.rate_server:
+        - clearwater0
+        - server.ellis.disk.write.bytes.rate_server
+      clearwater0.server.ellis.disk.root.size_server:
+        - clearwater0
+        - server.ellis.disk.root.size_server
+      clearwater0.server.bono.disk.usage_server:
+        - clearwater0
+        - server.bono.disk.usage_server
+      clearwater0.robot_test.abstract_robot_test.cpu.delta_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.cpu.delta_robot_test
+      clearwater0.server.ellis.cpu.delta_server:
+        - clearwater0
+        - server.ellis.cpu.delta_server
+      clearwater0.server.vellum.disk.read.bytes.rate_server:
+        - clearwater0
+        - server.vellum.disk.read.bytes.rate_server
+      clearwater0.server.dns.endpoint_server:
+        - clearwater0
+        - server.dns.endpoint_server
+      clearwater0.server.dns.disk.root.size_server:
+        - clearwater0
+        - server.dns.disk.root.size_server
+    requirements:
+      clearwater0.server.homer.local_storage_server:
+        - clearwater0
+        - server.homer.local_storage_server
+      clearwater0.server.vellum.local_storage_server:
+        - clearwater0
+        - server.vellum.local_storage_server
+      clearwater0.dns_security_group.dns.port_dns_security_group:
+        - clearwater0
+        - dns_security_group.dns.port_dns_security_group
+      clearwater0.bono_security_group.bono.port_bono_security_group:
+        - clearwater0
+        - bono_security_group.bono.port_bono_security_group
+      clearwater0.server.dime.dependency_server:
+        - clearwater0
+        - server.dime.dependency_server
+      clearwater0.dime_security_group.dime.dependency_dime_security_group:
+        - clearwater0
+        - dime_security_group.dime.dependency_dime_security_group
+      clearwater0.ellis_security_group.ellis.dependency_ellis_security_group:
+        - clearwater0
+        - ellis_security_group.ellis.dependency_ellis_security_group
+      clearwater0.server.ellis.dependency_server:
+        - clearwater0
+        - server.ellis.dependency_server
+      clearwater0.server.bono.local_storage_server:
+        - clearwater0
+        - server.bono.local_storage_server
+      clearwater0.vellum_security_group.vellum.dependency_vellum_security_group:
+        - clearwater0
+        - vellum_security_group.vellum.dependency_vellum_security_group
+      clearwater0.server.dns.dependency_server:
+        - clearwater0
+        - server.dns.dependency_server
+      clearwater0.server.dime.local_storage_server:
+        - clearwater0
+        - server.dime.local_storage_server
+      clearwater0.sprout_security_group.sprout.dependency_sprout_security_group:
+        - clearwater0
+        - sprout_security_group.sprout.dependency_sprout_security_group
+      clearwater0.sprout_security_group.sprout.port_sprout_security_group:
+        - clearwater0
+        - sprout_security_group.sprout.port_sprout_security_group
+      clearwater0.ellis_security_group.ellis.port_ellis_security_group:
+        - clearwater0
+        - ellis_security_group.ellis.port_ellis_security_group
+      clearwater0.server.homer.dependency_server:
+        - clearwater0
+        - server.homer.dependency_server
+      clearwater0.robot_test.abstract_robot_test.dependency_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.dependency_robot_test
+      clearwater0.server.vellum.dependency_server:
+        - clearwater0
+        - server.vellum.dependency_server
+      clearwater0.robot_test.abstract_robot_test.local_storage_robot_test:
+        - clearwater0
+        - robot_test.abstract_robot_test.local_storage_robot_test
+      clearwater0.homer_security_group.homer.port_homer_security_group:
+        - clearwater0
+        - homer_security_group.homer.port_homer_security_group
+      clearwater0.server.bono.dependency_server:
+        - clearwater0
+        - server.bono.dependency_server
+      clearwater0.homer_security_group.homer.dependency_homer_security_group:
+        - clearwater0
+        - homer_security_group.homer.dependency_homer_security_group
+      clearwater0.bono_security_group.bono.dependency_bono_security_group:
+        - clearwater0
+        - bono_security_group.bono.dependency_bono_security_group
+      clearwater0.robot_security_group.port:
+        - clearwater0
+        - robot_security_group.port
+      clearwater0.vellum_security_group.vellum.port_vellum_security_group:
+        - clearwater0
+        - vellum_security_group.vellum.port_vellum_security_group
+      clearwater0.dime_security_group.dime.port_dime_security_group:
+        - clearwater0
+        - dime_security_group.dime.port_dime_security_group
+      clearwater0.dns_security_group.dns.dependency_dns_security_group:
+        - clearwater0
+        - dns_security_group.dns.dependency_dns_security_group
+      clearwater0.server.sprout.dependency_server:
+        - clearwater0
+        - server.sprout.dependency_server
+      clearwater0.server.dns.local_storage_server:
+        - clearwater0
+        - server.dns.local_storage_server
+      clearwater0.server.ellis.local_storage_server:
+        - clearwater0
+        - server.ellis.local_storage_server
+      clearwater0.server.sprout.local_storage_server:
+        - clearwater0
+        - server.sprout.local_storage_server
+      clearwater0.robot_security_group.dependency:
+        - clearwater0
+        - robot_security_group.dependency
