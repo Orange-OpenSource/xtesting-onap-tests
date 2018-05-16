@@ -7,10 +7,14 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 #
 #  pylint: disable=missing-docstring
+
+from difflib import SequenceMatcher
+
 import logging
 import random
 import string
 import os
+import requests
 import yaml
 
 
@@ -55,6 +59,8 @@ def get_template_param(vnf_type, parameter):
     local_path = os.path.dirname(os.path.abspath(__file__))
     if "ims" in vnf_type:
         template_path = "templates/service-ClearwaterVims-template.yml"
+    elif "vfw" in vnf_type:
+        template_path = "templates/service-VfwService-template.yml"
     else:
         template_path = "templates/service-VmrfService-template.yml"
 
@@ -90,9 +96,43 @@ def get_logger(module):
     return logger
 
 
+# ----------------------------------------------------------
+#
+#               Misc
+#
+# -----------------------------------------------------------
 def random_string_generator(size=6,
                             chars=string.ascii_uppercase + string.digits):
     """
     Get a random String for VNF
     """
     return ''.join(random.choice(chars) for _ in range(size))
+
+
+def get_vf_module_index(vnf_list, target):
+    # until we understand how to match vnf & vf from the service template
+    best_index = 0
+    best_index_proba = 0
+    for i, elt in enumerate(vnf_list):
+        current_proba = SequenceMatcher(None,
+                                        target.lower(),
+                                        elt.lower()).ratio()
+        if current_proba > best_index_proba:
+            best_index = i
+            best_index_proba = current_proba
+    return best_index
+
+
+# ----------------------------------------------------------
+#
+#               requests
+#
+# -----------------------------------------------------------
+def get_simple_request(url, headers, proxy):
+    try:
+        response = requests.get(url, headers=headers,
+                                proxies=proxy, verify=False)
+        request_info = response.json()
+    except Exception:  # pylint: disable=broad-except
+        request_info = response.text
+    return request_info

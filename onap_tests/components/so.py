@@ -268,7 +268,7 @@ class So(object):
             module_id = response.json()
             # module_id = module_id_response['requestReferences']['instanceId']
         except Exception as err:  # pylint: disable=broad-except
-            self.logger.error("Impossible to create SO vnf: %s", err.message)
+            self.logger.error("Impossible to create SO vnf: %s", err)
             module_id = None
         return module_id
 
@@ -337,3 +337,13 @@ class So(object):
             self.logger.error("Impossible to delete the vnf %s: %s",
                               (vnf_id, str(err)))
         return delete_instance
+
+    def get_so_request_log(self):
+        """
+            Get Info on previous request
+        """
+        url = self.so_url + "/ecomp/mso/infra/orchestrationRequests/v5/"
+        self.logger.debug("SO request: %s", url)
+        return onap_test_utils.get_simple_request(url,
+                                                  self.so_headers,
+                                                  self.proxy)

@@ -18,7 +18,7 @@ import onap_tests.utils.utils as onap_test_utils
 
 class SoComponentTesting(unittest.TestCase):
 
-    _LOGGER = onap_test_utils.get_logger("onap_tests")
+    _LOGGER = onap_test_utils.getLogger("onap_tests")
     _PROXY = onap_test_utils.get_config("general.proxy")
 
     def setUp(self):

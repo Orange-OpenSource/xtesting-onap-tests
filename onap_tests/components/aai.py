@@ -123,6 +123,42 @@ class Aai(object):
             self.logger.info("VNF instance not found")
         return vnf_instance_found
 
+    def check_vnf_instances(self, vnf_ids):
+        """
+            Check the VNF(s) declared in the AA&I
+        """
+        url = (self.aai_url + "/aai/v11/network/generic-vnfs")
+        # if case of several VNFs, answer False if one is not found
+        nb_vnf_found = 0
+        for elt in vnf_ids:
+            try:
+                self.logger.info("AAI: looking for %s vnf instance....", elt)
+                vnf_id = vnf_ids[elt]["id"]
+                nb_try = 0
+                nb_try_max = 5
+                vnf_instance_found = False
+                while vnf_instance_found is False and nb_try < nb_try_max:
+                    response = requests.get(url, headers=self.aai_headers,
+                                            proxies=self.proxy, verify=False)
+                    if vnf_id in response.text:
+                        self.logger.info("Vnf instance %s found in AAI",
+                                         vnf_id)
+                        nb_vnf_found += 1
+                        vnf_instance_found = True
+                    time.sleep(10)
+                    nb_try += 1
+            except Exception as err:  # pylint: disable=broad-except
+                self.logger.error("impossible to perform the AAI request: %s",
+                                  str(err))
+            if nb_vnf_found == len(vnf_ids):
+                self.logger.info("VNF instance not found")
+                vnf_instance_found = True
+            else:
+                vnf_instance_found = False
+                self.logger.error("%s VNF found (%s expected)",
+                                  (nb_vnf_found, len(vnf_ids)))
+        return vnf_instance_found
+
     def check_vnf_cleaned(self, vnf_id):
         """
             Check the VNF declared in the AA&I
@@ -135,7 +171,7 @@ class Aai(object):
             while vnf_instance_found is True and nb_try < nb_try_max:
                 response = requests.get(url, headers=self.aai_headers,
                                         proxies=self.proxy, verify=False)
-                self.logger.info("AAI: has %s vnf instance been cleaned...",
+                self.logger.info("AAI: check if vnf %s instance been cleaned.",
                                  vnf_id)
                 if vnf_id not in response.text:
                     self.logger.info("Vnf instance %s cleaned in AAI",
@@ -147,7 +183,7 @@ class Aai(object):
             self.logger.error("impossible to perform the request on AAI: %s",
                               str(err))
         if vnf_instance_found is True:
-            self.logger.info("VNF instance not cleaned")
+            self.logger.info("VNF still in AAI, instance not cleaned")
         return not vnf_instance_found
 
     def check_module_instance(self, vnf_id, module_id):
@@ -193,17 +229,17 @@ class Aai(object):
             while module_instance_found is True and nb_try < nb_try_max:
                 response = requests.get(url, headers=self.aai_headers,
                                         proxies=self.proxy, verify=False)
-                self.logger.info("AAI: has %s module been cleaned...",
+                self.logger.info("AAI: Check if module  %s has been cleaned",
                                  module_id)
                 if module_id not in response.text:
                     self.logger.info("Module instance %s cleaned in AAI",
                                      module_id)
                     module_instance_found = False
-                time.sleep(10)
+                time.sleep(15)
                 nb_try += 1
         except Exception as err:  # pylint: disable=broad-except
             self.logger.error("impossible to perform the request on AAI: %s",
                               str(err))
         if module_instance_found is True:
-            self.logger.info("VFModule instance not cleaned")
+            self.logger.info("VFModule still in AAI, instance not cleaned")
         return not module_instance_found

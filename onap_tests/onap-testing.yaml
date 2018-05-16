@@ -8,42 +8,33 @@ general:
         'https': 'socks5h://127.0.0.1:8080'}
     clean: False
 onap:
-    # service:
-    #     name: test
-    # customer: Sina
-    # aai:
-    #     url: https://10.4.2.26:8443
-    #     headers: {
-    #         'accept': "application/json",
-    #         'content-type': "application/json",
-    #         'x-fromappid': "AAI",
-    #         'x-transactionid': "get_aai_subscr",
-    #         'authorization': "Basic QUFJOkFBSQ==",
-    #         'cache-control': "no-cache"}
-    # so:
-    #     url: http://10.4.2.15:8080
-    #     headers: {
-    #         'accept': "application/json",
-    #         'content-type': "application/json",
-    #         'x-fromappid': "AAI",
-    #         'x-transactionid': "get_aai_subscr",
-    #         'authorization':
-    #             "Basic SW5mcmFQb3J0YWxDbGllbnQ6cGFzc3dvcmQxJA==",
-    #         'cache-control': "no-cache"}
-    # sdnc:
-    #     url: http://10.4.2.11:8282
-    #     headers: {
-    #         'accept': "application/json",
-    #         'content-type': "application/json",
-    #         'x-transactionid': "0a3f6713-ba96-4971-a6f8-c2da85a3176e",
-    #         'x-fromappid': "API client",
-    #         'authorization':
-    #             "Basic YWRtaW46S3A4Yko0U1hzek0wV1hsaGFrM2VIbGNzZTJnQXc4NHZhb0\
-    #             dHbUp2VXkyVQ==",
-    #         'cache-control': "no-cache"}
     service:
         name: test
-    customer: JohnDoe
+    customer: generic
+    sdc:
+        name: sdc,
+        url: http://sdc.api.simpledemo.onap.org:8080
+        list_vlm_url:
+            "/onboarding-api/v1.0/vendor-license-models"
+        create_vlm_url: "/onboarding-api/v1.0/vendor-license-models"
+        checkin_vlm_url:
+            "/onboarding-api/v1.0/vendor-license-models/{{vlm_id}}\
+            /versions/{{vlm_version}}/actions"
+        submit_vlm_url:
+            "/onboarding-api/v1.0/vendor-license-models/{{vlm_id}}\
+            /versions/{{vlm_version}}/actions"
+        headers: {
+            'content-type': "application/json",
+            'accept': "application/json",
+            'x-transactionid': "44907a57-499d-4243-abcb-70b557cec984",
+            'user_id': "cs0008",
+            'x-fromappid': "robot-ete",
+            'authorization':
+                "Basic YWFpOktwOGJKNFNYc3pNMFdYbGhhazNlSGxjc2UyZ\
+                0F3ODR2YW9HR21KdlV5MlU=",
+            'x-ecomp-instanceid': "Rene",
+            'cache-control': "no-cache"
+        }
     aai:
         url: https://aai.api.simpledemo.onap.org:8443
         headers: {
@@ -74,30 +65,83 @@ onap:
                 "Basic YWRtaW46S3A4Yko0U1hzek0wV1hsaGFrM2VIbGNzZTJnQXc4NHZhb0\
                 dHbUp2VXkyVQ==",
             'cache-control': "no-cache"}
-
+    nbi:
+        url: http://10.4.2.149:8080/nbi/api/v1/
+        headers: {
+            'accept': "application/json",
+            'content-type': "application/json",
+            'cache-control': "no-cache"}
+vlm_payload:
+    vlm_create_data: {
+        'iconRef': "icon",
+        'description': "Vendor to be used for any VSP"}
+    vlm_checkin_data: {
+        'action': "Checkin"}
+    vlm_submit_data: {
+        'action': "Submit"}
 openstack:
     tenant_id: 6e97a2bd51d74f6db5671d8dc1517d82
 mrf:
     subscription_type: vMRF-service
-    vnf_parameters: [
-        {"vnf-parameter-name":"ext_net_id",
-         "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
-        {"vnf-parameter-name":"eventlistener_hostname_2",
-         "vnf-parameter-value":"10.4.2.44"},
-        {"vnf-parameter-name":"eventlistener_hostname",
-         "vnf-parameter-value":"10.4.2.44"},
-        {"vnf-parameter-name":"netconf_user_1",
-         "vnf-parameter-value":"netconfuser1"},
-        {"vnf-parameter-name":"netconf_password_1",
-         "vnf-parameter-value":"ncuser1Pass"},
-        {"vnf-parameter-name":"netconf_ssh_public_key_1",
-         "vnf-parameter-value":"vmrf_key_pair"},
-        {"vnf-parameter-name":"mrf_name_0",
-         "vnf-parameter-value":"Test_MRF_Radisys"}]
+    vMRF-vf 0:
+        vnf_parameters: [
+            {"vnf-parameter-name":"ext_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"eventlistener_hostname_2",
+             "vnf-parameter-value":"10.4.2.44"},
+            {"vnf-parameter-name":"eventlistener_hostname",
+             "vnf-parameter-value":"10.4.2.44"},
+            {"vnf-parameter-name":"netconf_user_1",
+             "vnf-parameter-value":"netconfuser1"},
+            {"vnf-parameter-name":"netconf_password_1",
+             "vnf-parameter-value":"ncuser1Pass"},
+            {"vnf-parameter-name":"netconf_ssh_public_key_1",
+             "vnf-parameter-value":"vmrf_key_pair"},
+            {"vnf-parameter-name":"mrf_name_0",
+             "vnf-parameter-value":"Test_MRF_Radisys"}]
 ims:
     subscription_type: Clearwater-vIMS
-    vnf_parameters: [
-        {"vnf-parameter-name":"public_net_id",
-         "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
-        {"vnf-parameter-name":"key_name",
-         "vnf-parameter-value":"cleouverte"}]
+    Clearwater 0:
+        vnf_parameters: [
+            {"vnf-parameter-name":"public_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"key_name",
+             "vnf-parameter-value":"cleouverte"}]
+vfw:
+    subscription_type: vFW-service
+    vFWCL_vPKG-vf 0:
+        vnf_parameters: [
+            {"vnf-parameter-name":"public_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"key_name",
+             "vnf-parameter-value":"cleouverte"},
+            {"vnf-parameter-name":"security_group_name",
+             "vnf-parameter-value":"basic-SSH-ICMP"},
+            {"vnf-parameter-name":"flavor_name",
+             "vnf-parameter-value":"onap.medium"},
+            {"vnf-parameter-name":"VM_name",
+             "vnf-parameter-value":"vFWCL_vPKG-vfmodule-instance-01"},
+            {"vnf-parameter-name":"onap_private_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"onap_private_subnet_id",
+             "vnf-parameter-value":"650a0971-7f01-4048-8424-69660eb57292"},
+            {"vnf-parameter-name":"dcae_collector_ip",
+             "vnf-parameter-value":"10.4.2.44"}]
+    vFWCL_vFWSNK-vf 0:
+        vnf_parameters: [
+            {"vnf-parameter-name":"public_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"key_name",
+             "vnf-parameter-value":"cleouverte"},
+            {"vnf-parameter-name":"security_group_name",
+             "vnf-parameter-value":"basic-SSH-ICMP"},
+            {"vnf-parameter-name": "flavor_name",
+             "vnf-parameter-value":"onap.medium"},
+            {"vnf-parameter-name":"VM_name",
+             "vnf-parameter-value":"vFWCL_vFWSNK-vfmodule-instance-01"},
+            {"vnf-parameter-name":"onap_private_net_id",
+             "vnf-parameter-value":"2da53890-5b54-4d29-81f7-3185110636ed"},
+            {"vnf-parameter-name":"onap_private_subnet_id",
+             "vnf-parameter-value":"650a0971-7f01-4048-8424-69660eb57292"},
+            {"vnf-parameter-name":"dcae_collector_ip",
+             "vnf-parameter-value":"10.4.2.44"}]

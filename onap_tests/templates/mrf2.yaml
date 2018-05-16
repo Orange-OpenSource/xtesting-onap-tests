@@ -1,0 +1,444 @@
+tosca_definitions_version: tosca_simple_yaml_1_1
+metadata:
+  invariantUUID: a458e0dc-b3f6-4a8b-a6a5-5d3d81c7199d
+  UUID: f1905b16-f09b-4699-aa53-c510f7641d66
+  name: vMRF-service-model
+  description: vMRF from Radisys vendor
+  type: Service
+  category: Network Service
+  serviceType: ''
+  serviceRole: ''
+  serviceEcompNaming: true
+  ecompGeneratedNaming: true
+  namingPolicy: ''
+imports:
+  - nodes:
+      file: nodes.yml
+  - datatypes:
+      file: data.yml
+  - capabilities:
+      file: capabilities.yml
+  - relationships:
+      file: relationships.yml
+  - groups:
+      file: groups.yml
+  - policies:
+      file: policies.yml
+  - service-vMRF-service-model-interface:
+      file: service-VmrfServiceModel-template-interface.yml
+  - resource-vMRF-VF:
+      file: resource-VmrfVf-template.yml
+  - resource-vMRF-VF-interface:
+      file: resource-VmrfVf-template-interface.yml
+topology_template:
+  node_templates:
+    vMRF-VF 0:
+      type: org.openecomp.resource.vf.VmrfVf
+      metadata:
+        invariantUUID: eb51f5cf-8e40-45b5-96db-fd98ac036a55
+        UUID: f57af3a0-6ff2-4023-be53-cd0ff72034f3
+        customizationUUID: 9db8a165-19e0-4875-a9e7-e395474a507d
+        version: '1.0'
+        name: vMRF-VF
+        description: vendor software product
+        type: VF
+        category: Application L4+
+        subcategory: Media Servers
+        resourceVendor: generic-vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        vf_module_id: swmrf_vf_module_id
+        eventlistener_pass_2: gel2pass
+        eventlistener_pass: gelpass
+        mrf_flavor_name: m1.large
+        mrf_image_name: MRF_Radisys_12
+        nf_naming:
+          ecomp_generated_naming: true
+        netconf_password_1: ncuser1Pass
+        netconf_max_auth_retries: 4.0
+        availability_zone_max_count: 1
+        netconf_session_timeout: 5.0
+        vnf_name: vmrf
+        netconf_ssh_port: 830.0
+        eventlistener_port: 8080.0
+        eventlistener_hostname: 10.4.2.38
+        vnf_id: '1'
+        netconf_ssh_public_key_1: vmrf_key_pair
+        eventlistener_user: geluser
+        eventlistener_hostname_2: 10.4.2.38
+        netconf_user_1: netconfuser1
+        eventlistener_user_2: gel2user
+        ext_net_id: 715a1ca1-cbc6-4d00-84bb-0f8667a748ce
+        eventlistener_port_2: 8080.0
+        mrf_name_0: SWMSVM
+      capabilities:
+        disk.device.write.requests_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.allocation_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.capacity_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.root.size_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.iops_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory.resident_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu.delta_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.usage_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.requests.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.latency_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.ephemeral.size_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        scalable_mrf:
+          properties:
+            min_instances: 1
+            max_instances: 1
+        disk.device.write.requests.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.bytes.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.allocation_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        vcpus_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.read.requests_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        cpu_util_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.write.bytes.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        endpoint_mrf:
+          properties:
+            secure: true
+        disk.iops_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.bytes.rate_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.latency_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.device.usage_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory.usage_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        memory_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.read.requests_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.requests_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        instance_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.capacity_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        disk.write.bytes_mrf:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+  groups:
+    vmrfvf0..VmrfVf..base_swms..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: VmrfVf..base_swms..module-0
+        vfModuleModelInvariantUUID: 7949c8c6-b058-443c-b551-3a7860137bbd
+        vfModuleModelUUID: 4ae52bc5-e4d7-4455-bb05-c4b98c9c7720
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: f49eee2b-f312-484a-8f7c-5e7afe9c2dec
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_swms
+        max_vf_module_instances: 1
+        vfc_list:
+        vf_module_type: Base
+        vf_module_description:
+        initial_count: 1
+        volume_group: false
+        availability_zone_count:
+  substitution_mappings:
+    node_type: org.openecomp.service.VmrfServiceModel
+    capabilities:
+      vmrfvf0.mrf.abstract_mrf.host_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.host_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.allocation_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.allocation_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.capacity_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.capacity_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.allocation_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.allocation_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.capacity_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.capacity_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu_util_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu_util_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.bytes_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.bytes_mrf
+      vmrfvf0.mrf.abstract_mrf.binding_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.binding_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu.delta_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu.delta_mrf
+      vmrfvf0.mrf.abstract_mrf.memory.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.cpu_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.cpu_mrf
+      vmrfvf0.mrf.abstract_mrf.memory.resident_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory.resident_mrf
+      vmrfvf0.mrf.abstract_mrf.memory_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.memory_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.iops_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.iops_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.usage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.usage_mrf
+      vmrfvf0.mrf.abstract_mrf.instance_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.instance_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.requests.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.read.requests_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.read.requests_mrf
+      vmrfvf0.mrf.abstract_mrf.endpoint_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.endpoint_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.iops_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.iops_mrf
+      vmrfvf0.mrf.abstract_mrf.feature_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.feature_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.read.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.read.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.latency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.latency_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.root.size_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.root.size_mrf
+      vmrfvf0.mrf.abstract_mrf.os_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.os_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.ephemeral.size_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.ephemeral.size_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.bytes.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.bytes.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.vcpus_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.vcpus_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.write.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.write.requests.rate_mrf
+      vmrfvf0.mrf.abstract_mrf.scalable_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.scalable_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.device.latency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.device.latency_mrf
+      vmrfvf0.mrf.abstract_mrf.disk.write.requests.rate_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.disk.write.requests.rate_mrf
+    requirements:
+      vmrfvf0.mrf.abstract_mrf.dependency_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.dependency_mrf
+      vmrfvf0.mrf.abstract_mrf.local_storage_mrf:
+        - vmrfvf0
+        - mrf.abstract_mrf.local_storage_mrf
